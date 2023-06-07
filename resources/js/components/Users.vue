@@ -8,7 +8,7 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" @click="vwpdf" class="btn btn-primary">pdf preview</button>
                     <button type="button"  @click="dlpdf" class="btn btn-danger">download pdf</button>
-                    <button type="button" class="btn btn-success">excel export</button>
+                    <button type="button" @@click="exl" class="btn btn-success">excel export</button>
                     </div>
                      
                   </div>
@@ -129,7 +129,11 @@ import axios from 'axios';
             },
             dlpdf: function (){
                 window.location.href='http://localhost:8000/report/dlusers';
+            },
+            exl: function(){
+                alert('sorry!! not yet functioning because excel package error on my system, I will work on this soon!!');
             }
+
         }
     }
 </script>
