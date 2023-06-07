@@ -1,7 +1,7 @@
 <template>
     <div class="container" id="box">
        <h1 class="title">Edit User Section</h1>
-<form>
+<form v-on:submit.prevent>
   <div class="form-group">
     <label for="email">Email address</label>
     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" v-model="data.email" placeholder="Enter email">
@@ -74,14 +74,13 @@
                      'role':role,
                      'subscription': subscription,
                      };
-                   
-                axios({url:`http:localhost:8000/api/user/`+id,
-                    method:'post',
-                    data: userdata
-            }).then((res)=> 
-                 //window.location.reload
-                (console.log(res)))
-              
+                   const url=`http://localhost:8000/api/user/${id}`;
+                 
+                axios.post(url, userdata)
+                .then((res)=> {
+                   console.log(res.message);
+                   window.location.reload();
+                })
                 .catch(function (error) 
                 {
                  console.log(error);

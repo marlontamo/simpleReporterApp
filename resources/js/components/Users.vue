@@ -17,17 +17,17 @@
             </div>
         </div>
          
-                                 
-       <table class="table table-striped table-bordered table-hover">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
                 <thead class="thead-dark text-center">
                     <tr>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Phone</th>
-                        <th>Subscription</th>
-                        <th>action</th>
+                        <th scope="col">id</th>
+                        <th scope="col">name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Subscription</th>
+                        <th scope="col">action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,6 +49,8 @@
                     </tr>
                 </tbody>
             </table>
+        </div>                         
+       
           
             <modal :data="info"></modal>
             
@@ -82,7 +84,7 @@ import axios from 'axios';
         },
         methods:{
             edit : function(id){
-                axios.get('api/user/'+id)
+                axios.get('http://localhost:8000/api/user/'+id)
                 .then((res)=> (this.info = res.data.data))
                 .catch(function (error) 
                 {
