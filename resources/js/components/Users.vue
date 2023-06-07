@@ -1,6 +1,23 @@
 <template>
     <div class="container">
-       <h1>User List</h1>                            
+        <div class="row">
+            <div class="col-md-6"><h1>List of Subscribers</h1></div>
+            <div class="col-md-6">
+                <div class="row">
+                   <div class="offset-md-5">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" @click="vwpdf" class="btn btn-primary">pdf preview</button>
+                    <button type="button"  @click="dlpdf" class="btn btn-danger">download pdf</button>
+                    <button type="button" class="btn btn-success">excel export</button>
+                    </div>
+                     
+                  </div>
+                </div>
+                 
+            </div>
+        </div>
+         
+                                 
        <table class="table table-striped table-bordered table-hover">
                 <thead class="thead-dark text-center">
                     <tr>
@@ -104,6 +121,12 @@ import axios from 'axios';
             cancelEdit: function(){
                 this.show =false;
                 console.log(this.show);
+            },
+            vwpdf: function(){
+                window.location.href='http://localhost:8000/report/viewpdf';
+            },
+            dlpdf: function (){
+                window.location.href='http://localhost:8000/report/dlusers';
             }
         }
     }
